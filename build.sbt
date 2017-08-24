@@ -2,8 +2,6 @@ name := "SCORER"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.3"
 
-libraryDependencies ++= Seq(
-  "org.jsoup" % "jsoup" % "1.8.3"
-)
+libraryDependencies += "org.typelevel" %% "cats-core" % "1.0.0-MF"
