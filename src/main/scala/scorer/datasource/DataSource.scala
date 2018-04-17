@@ -9,10 +9,10 @@ trait DataSource {
 }
 
 object DataSource {
-  class Wiki extends DataSource {
+  object Wiki extends DataSource {
     override def from(source: String): Try[String] = {
       Try(Jsoup.connect(source).get())
-        .map(_.select("firstHeading"))
+        .map(_.select("h1.firstHeading"))
         .flatMap {
           case x if x.isEmpty => Failure(new RuntimeException("empty title"))
           case y@_ => Success(y.first().text())
